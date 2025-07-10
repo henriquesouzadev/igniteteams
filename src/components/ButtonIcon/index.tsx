@@ -9,14 +9,14 @@ type Props = TouchableOpacityProps & {
   type?: "PRIMARY" | "SECONDARY";
 };
 
-const ButtonIcon = ({ icon, type = "PRIMARY" }: Props) => {
+const ButtonIcon = ({ icon, type = "PRIMARY", ...rest }: Props) => {
   const styleMap = {
     PRIMARY: theme.COLORS.GREEN_700,
     SECONDARY: theme.COLORS.RED,
   };
 
   return (
-    <TouchableOpacity style={[styles.container]}>
+    <TouchableOpacity style={[styles.container]} {...rest}>
       <MaterialIcons name={icon} color={styleMap[type]} size={24} />
     </TouchableOpacity>
   );

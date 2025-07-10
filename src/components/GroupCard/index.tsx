@@ -1,16 +1,21 @@
 import React from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import {
+  Text,
+  TouchableOpacity,
+  TouchableOpacityProps,
+  View,
+} from "react-native";
 import styles from "./styles";
 import { UsersThreeIcon } from "phosphor-react-native";
 import theme from "@/src/theme";
 
-type Props = {
+type Props = TouchableOpacityProps & {
   title: string;
 };
 
-const GroupCard = ({ title }: Props) => {
+const GroupCard = ({ title, ...rest }: Props) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} {...rest}>
       <UsersThreeIcon
         style={styles.icon}
         weight="fill"
